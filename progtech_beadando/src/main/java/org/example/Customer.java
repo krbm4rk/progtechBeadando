@@ -6,7 +6,7 @@ public class Customer {
     private double cusBalance;
     Order orders;
 
-    public Customer(String cusName, String cusAddress, double cusBalance, ICustomerStrategy customerStrategy) {
+    public Customer(String cusName, String cusAddress, double cusBalance, CustomerStrategy customerStrategy) {
         this.cusName = cusName;
         this.cusAddress = cusAddress;
         this.cusBalance = cusBalance;

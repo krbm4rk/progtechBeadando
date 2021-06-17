@@ -2,15 +2,10 @@ package org.example;
 
 import java.util.ArrayList;
 
-public final class MainStock implements IObserverInfo {
+public final class MainStock implements ObserverInfo {
 
-    static MainStock mainStock =null;
 
-    public static MainStock getInstance(){
-        if(mainStock ==null) mainStock = new MainStock();
-        return mainStock;
-    }
-    private ArrayList<IObserver> observerList = new ArrayList<>();
+    private ArrayList<Observer> observerList = new ArrayList<>();
     XboxStock xboxStock;
     PlaystationStock playstationStock;
 
@@ -29,17 +24,24 @@ public final class MainStock implements IObserverInfo {
 
     public void ConsoleImported(Console console, ConsoleSupplier consoleSupplier, int amount) {
         console.setConsoleSupplier(consoleSupplier);
-        ObserverInform(console, amount);}
+        InformObserverFromConsole(console, amount);}
 
     @Override
-    public void ObserverAdd(IObserver observer) {
+    public void AddObserverToStock(Observer observer) {
     observerList.add(observer);
     }
 
     @Override
-    public void ObserverInform(Console console, int amount) {
-    for (IObserver observer:observerList){
-        observer.update(console, amount);
+    public void InformObserverFromConsole(Console console, int amount) {
+    for (Observer observer:observerList){
+        observer.updateConsole(console, amount);
     }
+    }
+
+    private static MainStock mainStock =null;
+
+    public static MainStock getInstance(){
+        if(mainStock ==null) mainStock = new MainStock();
+        return mainStock;
     }
 }

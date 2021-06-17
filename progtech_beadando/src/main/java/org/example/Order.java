@@ -2,9 +2,9 @@ package org.example;
 
 public class Order{
     MainStock mainStock;
-    ICustomerStrategy customerStrategy;
+    CustomerStrategy customerStrategy;
 
-    public Order(MainStock mainStock, ICustomerStrategy customerStrategy) {
+    public Order(MainStock mainStock, CustomerStrategy customerStrategy) {
         this.mainStock = mainStock;
         this.customerStrategy = customerStrategy;
     }

@@ -1,6 +1,6 @@
 package org.example;
 
-public class PersonCustomerStrategy implements ICustomerStrategy {
+public class PersonCustomerStrategy implements CustomerStrategy {
 
     MainStock mainStock;
 

@@ -2,17 +2,17 @@ package org.example;
 
 import java.util.ArrayList;
 
-public class PlaystationStock implements IObserver, IProductOperations{
+public class PlaystationStock implements Observer, ProductOperations {
 
     private final ArrayList<Console> playstationList = new ArrayList<>();
     private MainStock mainStock;
 
     public PlaystationStock(MainStock mainStock) {
         this.mainStock = mainStock;
-        mainStock.ObserverAdd(this);}
+        mainStock.AddObserverToStock(this);}
 
     @Override
-    public void update(Console console, int amount) {
+    public void updateConsole(Console console, int amount) {
         if (console.getType() == ProductTypeEnum.Playstation)
             for (int i = 0; i< amount; i++){
                 playstationList.add(console);}
